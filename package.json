@@ -34,3 +34,10 @@
     "@tailwindcss/typography": "^0.5.13"
   }
 }
+{
+  "scripts": {
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview"
+  }
+}
