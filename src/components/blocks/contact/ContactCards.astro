@@ -1,0 +1,233 @@
+---
+// Unified About and Certification Section
+// ------------
+// Description: A unified section combining company information and certifications with shared background
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+// - UI
+import Card from '../../ui/cards/BasicCard.astro'
+import { Image } from 'astro:assets'
+
+// Content - Certification logos (corrected paths)
+import ivs from '../../../assets/ivs-logo.svg'
+import rics from '../../../assets/Rics-Logo.png'
+import ifrs from '../../../assets/ifrs-logo.svg'
+import sisv from '../../../assets/sisv-logo.png'
+
+const certificationLogos = [
+	{
+		image: rics,
+		alt: 'RICS Compliant',
+		title: 'RICS Compliant',
+		subtitle: 'Royal Institution of Chartered Surveyors'
+	},
+	{
+		image: ivs,
+		alt: 'IVS Standards',
+		title: 'IVS Standards',
+		subtitle: 'International Valuation Standards'
+	},
+	{
+		image: ifrs,
+		alt: 'IFRS Reporting',
+		title: 'IFRS Reporting',
+		subtitle: 'International Financial Reporting Standards'
+	},
+	{
+		image: sisv,
+		alt: 'SISV Member',
+		title: 'SISV Member',
+		subtitle: 'Singapore Institute of Surveyors and Valuers'
+	}
+]
+
+// Props
+type Props = {
+	bg?: string;
+	classes?: string
+}
+const { bg, classes } = Astro.props;
+---
+
+	<!-- Company Information Section -->
+	<Section id="about" classes="py-20">
+		<Row>
+			<Col span="8" classes="pr-12">
+				<div class="space-y-8">
+					<h2 class="text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 leading-tight">
+						Built on 
+						<span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+							Unparalleled Experience
+						</span>
+					</h2>
+					
+					<div class="space-y-6 text-lg text-neutral-700 leading-relaxed">
+						<p>
+							At Twin Pillars, our foundation is built on unparalleled experience. Our esteemed founder, 
+							Mr. Milton Tan, spearheads our 
+							machinery and equipment valuation practice with over three decades of experience, contributing to a 
+							staggering <span class="font-semibold text-neutral-900">USD 30 billion</span> in volume. This profound market understanding and exceptional capability 
+							underscore our commitment to excellence.
+						</p>
+						<p>
+							We deliver sound valuation services to a diverse and expansive clientele, ranging from private entities 
+							to publicly listed companies, financial institutions and various government agencies throughout Asia. 
+							With our head office strategically located in Singapore and a network of affiliated companies across Asia, 
+							we ensure comprehensive regional coverage and localized insights.
+						</p>
+					</div>
+				</div>
+			</Col>
+			<Col span="4" classes="pl-8">
+				<div class="space-y-6">
+					<!-- Years of Experience Card -->
+					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+						<div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent mb-2">30+</div>
+						<div class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Years of Experience</div>
+					</div>
+					
+					<!-- USD Valuation Volume Card -->
+					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+						<div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent mb-2">$30B</div>
+						<div class="text-sm font-medium text-neutral-600 dark:text-neutral-400">USD Valuation Volume</div>
+					</div>
+					
+					<!-- Countries Covered Card -->
+					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+						<div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent mb-2">6</div>
+						<div class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Countries Covered</div>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
+	<!-- Excellence in Valuation Section -->
+	<Section classes="py-20 bg-gradient-to-br from-neutral-800 to-neutral-900">
+		<Row>
+			<Col span="12" align="center" classes="mb-16">
+				<h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+					<span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">Excellence</span>
+					<span class="text-neutral-50"> in Valuation</span>
+				</h2>
+				<p class="text-lg text-neutral-200 leading-relaxed max-w-8xl mx-auto">
+					At Twin Pillars, quality and adherence to global standards are paramount. Every report we produce is meticulously prepared, strictly 
+					following the rigorous benchmarks set by the Royal Institution of Chartered Surveyors (RICS) and International Valuation Standards 
+					(IVS). This unwavering commitment to best practices and superior service has cemented our reputation as trusted valuers in the 
+					valuation industry. We don't just provide valuations; we provide trusted insights backed by the highest global standards, ensuring your 
+					valuations are reliable, globally recognized, and defensible.
+				</p>
+			</Col>
+		</Row>
+		
+		<!-- Certification Cards -->
+		<Row >
+			{
+				certificationLogos.map((cert) => (
+					<Col span="3">
+						<div class="group certification-card bg-gradient-to-br from-white to-neutral-50 rounded-2xl p-8 text-center shadow-lg border border-neutral-600 hover:border-primary-400 h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+							<div class="cert-logo-wrapper mb-6">
+								<div class="h-16 flex items-center justify-center mb-4">
+									<Image 
+										src={cert.image} 
+										alt={cert.alt} 
+										class="max-h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+									/>
+								</div>
+							</div>
+							<h3 class="text-lg font-bold text-neutral-900 mb-2">
+								{cert.title}
+							</h3>
+							<p class="text-sm text-neutral-600 leading-relaxed">
+								{cert.subtitle}
+							</p>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+
+		<!-- Trust Badge -->
+		<Row classes="mt-16">
+			<Col span="12" align="center">
+				<div class="inline-flex items-center gap-3 bg-gradient-to-r from-neutral-50 to-primary-50 rounded-full px-8 py-4 border border-neutral-200">
+					<svg class="w-6 h-6 text-neutral-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+					</svg>
+					<span class="text-neutral-900 font-semibold">
+						Trusted insights backed by the highest global standards
+					</span>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+</div>
+
+<style>
+	/* Enhanced styling for better visual appeal */
+	.stat-card {
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.certification-card {
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.cert-logo-wrapper {
+		transition: transform 0.3s ease;
+	}
+	
+	/* Enhanced logo styling */
+	.certification-card img {
+		filter: grayscale(0.3) opacity(0.9);
+		transition: all 0.3s ease;
+	}
+	
+	.certification-card:hover img {
+		filter: grayscale(0) opacity(1);
+	}
+	
+	/* Dark background specific styling */
+	.bg-gradient-to-br.from-neutral-800.to-neutral-900 .certification-card {
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+		backdrop-filter: blur(10px);
+	}
+	
+	.bg-gradient-to-br.from-neutral-800.to-neutral-900 .certification-card:hover {
+		background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(248, 250, 252, 0.95));
+		border-color: #ebc534;
+		box-shadow: 0 25px 50px -12px rgba(235, 197, 52, 0.25);
+	}
+	
+	/* Smooth gradient animations */
+	.bg-gradient-to-r.from-primary-400.to-primary-600 {
+		background-size: 200% 200%;
+		animation: gradientShift 3s ease infinite;
+	}
+	
+	@keyframes gradientShift {
+		0%, 100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+	
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.stat-card {
+			margin-bottom: 1.5rem;
+		}
+		
+		.certification-card {
+			margin-bottom: 2rem;
+		}
+	}
+</style>

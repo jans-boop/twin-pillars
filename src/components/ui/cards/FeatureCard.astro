@@ -1,0 +1,51 @@
+---
+// Feature Card
+// ------------
+// Description: The Card for presenting a feature with full image background
+// Properties:
+// - Title: the title of the card
+// - Subtitle: the subtitle of the card
+// - Image: the main image of the card
+// - Link: The link to the blog post
+
+// Components
+import Button from '../Button.astro'
+
+// Props
+type Props = {
+	title?: string
+	subtitle?: string
+	image?: any
+	link?: string
+}
+const { title, subtitle, image, link } = Astro.props
+---
+
+<!-- Image Overlay Card Style with White Text Background and Button -->
+<div class="overflow-hidden bg-white rounded-2xl shadow-none border border-neutral-100 dark:border-neutral-800 h-96 group cursor-pointer hover:shadow-lg transition-shadow duration-300">
+	<!-- Image with overlay -->
+	<figure class="relative h-full">
+		<img 
+			src={image.src} 
+			alt={title} 
+			class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+		/>
+		<figcaption class="absolute bottom-0 left-0 w-full p-6">
+			<!-- White background container for text -->
+			<div class="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+				<h3 class="text-xl font-semibold mb-2 text-yellow-900">{title}</h3>
+				<p class="text-sm text-yellow-700 line-clamp-3 mb-6">{subtitle}</p>
+				<!-- Button with custom width and hover effects -->
+				<Button 
+					type="link" 
+					link={link} 
+					size="lg" 
+					style="neutral"
+					classes="inline-block px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300"
+				>
+					Learn More →
+				</Button>
+			</div>
+		</figcaption>
+	</figure>
+</div>

@@ -1,0 +1,56 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+// - UI
+import Feature from '../components/blocks/features/MEVFeatureList.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+import CTA from '../components/blocks/CTA/MEVBasicDark.astro'
+
+// Data
+import featuresData from '../data/json-files/MEVfeaturesData.json'
+
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Twin Pillars | Your One-Stop Valuation Partners',
+	description:
+		'Skilled valuation professionals unlocking asset value to drive business growth'
+}
+
+// - Page Header
+const header = {
+	title: '<strong>Machinery and Equipment Valuation</strong>',
+	text: 'Unleash the True Value of Your Assets'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+	<Section id="features">
+		<Row>
+			<Col span="12" align="center" classes="mb-12 max-w-6xl mx-auto">
+				<div class="text-lg space-y-16">
+					<div>
+						<h3 class="text-xl font-semibold mb-3">Leading Expertise in Asia</h3>
+						<p>
+							In today's dynamic industrial landscape, understanding the precise value of your plant and machinery is a strategic imperative. Twin Pillars stands as the leading expert in Plant and Machinery valuation across Asia, serving a prestigious clientele including private entities, listed companies, and government organizations within the manufacturing and utilities sectors.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-xl font-semibold">Comprehensive Asset Coverage</h3>
+						<p>
+							Our unparalleled expertise extends to valuing an incredibly diverse spectrum of assets, from individual, standalone machines to entire, complex process manufacturing facilities. This includes critical infrastructure such as power plants, advanced telecommunication facilities, desalination plants and sophisticated high-tech manufacturing complexes. With experience spanning over 100 different industries, we bring deep, nuanced knowledge to every assignment.
+						</p>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+	<Feature />
+	<CTA />
+</Layout>

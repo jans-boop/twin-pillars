@@ -1,0 +1,26 @@
+[
+	{
+		"title": "Customer relationships",
+		"icon": "chat-bubbles"
+	},
+	{
+		"title": "Franchises",
+		"icon": "rectangle-stack"
+	},
+	{
+		"title": "Distribution and publicity rights",
+		"icon": "device-phone-mobile"
+	},
+	{
+		"title": "Technological inventions and software copyrights",
+		"icon": "computer-desktop"
+	},
+	{
+		"title": "Trademarks and patents",
+		"icon": "identification"
+	},
+	{
+		"title": "Business contracts",
+		"icon": "document-text"
+	}
+]

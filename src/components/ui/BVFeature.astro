@@ -1,0 +1,83 @@
+---
+// Feature
+// ------------
+// Description: the Feature component is designed to highlight and showcase a specific feature, functionality, or offering within a product, application, or website.
+// Properties:
+// - Title: the title of the feature
+// - Icon: the icon of the feature
+// - IconStyle: the style of the icon (normal, square)
+// - Align: alignment (left, center)
+// - classes: additional classes
+// Reference: https://wind-ui.com/components/features/
+
+// Components
+// - UI
+import { Icon } from 'astro-icon/components'
+
+// Props
+type Props = {
+	title?: string
+	icon?: string
+	iconStyle?: 'normal' | 'square'
+	align?: 'left' | 'center'
+	classes?: string
+}
+const { title, icon = 'rocket', iconStyle, align = 'left', classes } = Astro.props
+---
+
+<div
+	class:list={[
+		'feature',
+		{ 'feature--center': align === 'center' },
+		{ 'feature--left': align === 'left' },
+		{ [`${classes}`]: classes }
+	]}
+>
+	<div class="feature__icon">
+		<Icon
+			name=`${icon}`
+			class:list={[
+				{ [`w-6 h-6 text-yellow-200`]: iconStyle !== 'square' },
+				{ [`w-6 h-6 rounded bg-yellow-200 p-1 text-neutral-100`]: iconStyle === 'square' }
+			]}
+		/>
+	</div>
+	{
+		title && (
+			<h3 class="feature__title">
+				{title}
+			</h3>
+		)
+	}
+</div>
+
+<style>
+	.feature {
+		@apply flex gap-4 h-full;
+	}
+	
+	.feature__icon {
+		@apply flex items-center justify-center w-8 h-8 shrink-0;
+	}
+	
+	.feature__title {
+		@apply text-lg leading-6 text-yellow-400 font-medium;
+	}
+	
+	/* Alignment variations */
+	.feature--center {
+		@apply flex-col items-center text-center;
+	}
+	
+	.feature--center .feature__icon {
+		@apply mb-4;
+	}
+	
+	.feature--center .feature__title {
+		@apply mt-0;
+	}
+	
+	.feature--left {
+		@apply flex-row items-center;
+	}
+</style>

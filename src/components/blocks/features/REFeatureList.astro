@@ -1,0 +1,71 @@
+---
+// Feature List Section
+// ------------
+// Description: A list of features with icons and descriptions in a 4 column layout.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+// - UI
+import Feature from '../../ui/Feature.astro'
+
+// Data
+import features from '../../../data/json-files/REfeaturesData.json'
+
+const { id = 'intro', title, text, classes } = Astro.props
+---
+
+<Section id="features" classes=`bg-neutral-50 dark:bg-neutral-900 text-white ${classes}`>
+	<Row>
+		<Col span="12" align="center" classes="mb-28 max-w-6xl mx-auto">
+			<h4 class="text-pretty"> Our professional valuation services are trusted for a diverse and critical range of purposes, including: </h4>
+		</Col>
+	</Row>
+	
+	<div class="grid grid-cols-4 gap-x-6 gap-y-16 max-w-6xl mx-auto">
+		{
+			features.slice(0, 13).map((feature, index) => {
+				// For the last item (index 12), center it across all 4 columns
+				let gridClass = '';
+				if (index === 12) {
+					gridClass = 'col-start-2 col-span-2';
+				}
+				
+				return (
+				<div 
+						class={`w-full h-24 flex items-center justify-center feature-item ${gridClass}`}
+						style={`animation-delay: ${index * 0.1}s`}
+					>
+						<Feature title={feature.title} icon={feature.icon} align="center" />
+					</div>
+				);
+			})
+		}
+	</div>
+</Section>
+
+<style>
+	.feature-item {
+		opacity: 0;
+		transform: translateY(20px);
+		animation: fadeInUp 0.6s ease-out forwards;
+	}
+
+	@keyframes fadeInUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Optional: Add animation on scroll instead of page load */
+	@media (prefers-reduced-motion: reduce) {
+		.feature-item {
+			animation: none;
+			opacity: 1;
+			transform: none;
+		}
+	}
+</style>

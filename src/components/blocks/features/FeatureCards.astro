@@ -1,0 +1,60 @@
+---
+// Feature Cards grid Section
+// ------------
+// Description: A grid of cards with feature information in a 2 row layout.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+// - UI
+import Card from '../../ui/cards/FeatureCard.astro'
+
+// Content
+// - Cards
+import feature01 from '../../../assets/cards/machinery.jpg'
+import feature02 from '../../../assets/cards/business.jpg'
+import feature03 from '../../../assets/cards/re.jpg'
+---
+
+<Section id="services">
+	<Row>
+		<Col span="16" align="center" classes="mb-12 max-w-8xl mx-auto">
+			<h2 class="text-pretty">Our Core Expertise</h2>
+			<p class="pb-0 text-lg ">
+				Twin Pillars is a premier valuation firm committed to providing a comprehensive suite of appraisal services tailored to your needs. We specialize in delivering precise, defensible valuations across all major asset classes, simplifying complex appraisal processes and empowering your strategic decisions.
+			</p>
+		</Col>
+	</Row>
+	<Row classes="mb-16" >
+		<Col span="2">
+		</Col>
+		<Col span="8">
+			<Card
+				title="Machinery and Equipment Valuation"
+				subtitle="Trusted by businesses of all sizes, we provide valuations that are key to financial reporting, insurance coverage, mergers and acquisitions, and asset-backed financing. Our reliable insights help you make confident, well-informed decisions."
+				image={feature01}
+				link="/machinery-and-equipment-valuation"
+			/>
+		</Col>
+	</Row>
+	<Row>
+		<Col span="6">
+			<Card
+				title="Business Valuation"
+				subtitle="Gain clear insights into your company's true worth for informed strategic planning."
+				image={feature02}
+				link="/business-valuation"
+			/>
+		</Col>
+		<Col span="6">
+			<Card
+				title="Real Estate Valuation"
+				subtitle="Ensure accurate property assessments for various purposes, from transactions to financial reporting."
+				image={feature03}
+				link="/real-estate-valuation"
+			/>
+		</Col>
+	</Row>
+</Section>

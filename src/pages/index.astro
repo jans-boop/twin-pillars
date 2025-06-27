@@ -1,0 +1,40 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import Hero from '../components/blocks/hero/HomeCTA.astro'
+import Features from '../components/blocks/features/FeatureCards.astro'
+import HighlightBlocks from '../components/blocks/highlights/HightlightRows.astro'
+import FormHero from '../components/blocks/hero/ContactHero.astro'
+import ContactCards from '../components/blocks/contact/ContactCards.astro'
+import SocialProof from '../components/blocks/socialproof/Basic.astro'
+
+// Content
+// - Testimonial background
+import testimonialBackground from '../assets/cta-light-bg.png'
+// - SEO
+const SEO = {
+	title: 'Twin Pillars | Your One-Stop Valuation Partners',
+	description:
+		'Skilled valuation professionals unlocking asset value to drive business growth'
+}
+
+const header = {
+	title: '<strong>Contact Us </strong>',
+	text: "Get in touch with our valuation experts"
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero />
+	<Features />
+	<ContactCards bg={testimonialBackground.src} />
+	<HighlightBlocks />
+	<FormHero
+		title={header.title}
+		text={header.text}
+		id="contact"
+		classes="bg-neutral-50 dark:bg-neutral-950/80"
+	/>
+</Layout>

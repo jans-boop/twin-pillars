@@ -1,0 +1,54 @@
+[
+	{
+		"title": "Mergers & Acquisitions / Joint Ventures",
+		"icon": "arrow-path-rounded-square"
+	},
+	{
+		"title": "Purchase Price Allocation (IFRS3)",
+		"icon": "chart-pie"
+	},
+	{
+		"title": "Reverse Takeovers",
+		"icon": "arrow-trending-up"
+	},
+	{
+		"title": "Fund Raising and Financing",
+		"icon": "credit-card"
+	},
+	{
+		"title": "Financial Reporting (IFRS)",
+		"icon": "clipboard-document-list"
+	},
+	{
+		"title": "Initial Public Offering (IPO)",
+		"icon": "arrow-trending-up"
+	},
+	{
+		"title": "Sales/Transfer of Assets between Corporates",
+		"icon": "long-arrow-right"
+	},
+	{
+		"title": "Liquidation",
+		"icon": "circle-stack"
+	},
+	{
+		"title": "Restructuring and Reorganization",
+		"icon": "squares-plus"
+	},
+	{
+		"title": "Insurance",
+		"icon": "shield-check"
+	},
+	{
+		"title": "Internal Assessment",
+		"icon": "clipboard-document-check"
+	},
+	{
+		"title": "Corporate Planning",
+		"icon": "light-bulb"
+	},
+	{
+		"title": "Second Opinions",
+		"icon": "chat-bubbles"
+	}
+]

@@ -1,0 +1,84 @@
+---
+// Feature List Section
+// ------------
+// Description: A list of features with icons and descriptions in a 4 column layout.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+// - UI
+import Feature from '../../ui/Feature.astro'
+
+// Data
+import features from '../../../data/json-files/BVfeaturesData.json'
+
+const { id = 'intro', title, text, classes } = Astro.props
+---
+
+<Section id="features" classes=`bg-neutral-50 dark:bg-neutral-900 text-white ${classes}`>
+	<Row>
+		<Col span="12" align="center" classes="mb-28 max-w-6xl mx-auto">
+			<h4 class="text-pretty">Our independent business valuations are essential for a multitude of scenarios, ensuring you have a clear, objective assessment for pivotal moments such as: </h4>
+		</Col>
+	</Row>
+	
+	<div class="max-w-6xl mx-auto">
+		{/* First 11 features in 4-column grid */}
+		<div class="grid grid-cols-4 gap-x-6 gap-y-16 mb-16">
+			{
+				features.slice(0, 8).map((feature, index) => {
+					return (
+						<div 
+							class="w-full h-24 flex items-center justify-center feature-item"
+							style={`animation-delay: ${index * 0.1}s`}
+						>
+							<Feature title={feature.title} icon={feature.icon} align="center" />
+						</div>
+					);
+				})
+			}
+		</div>
+		
+		{/* Last 3 features centered */}
+		<div class="flex justify-center gap-x-6">
+			{
+				features.slice(8, 11).map((feature, index) => {
+					return (
+						<div 
+							class="w-full max-w-xs h-24 flex items-center justify-center feature-item"
+							style={`animation-delay: ${(11 + index) * 0.1}s`}
+						>
+							<Feature title={feature.title} icon={feature.icon} align="center" />
+						</div>
+					);
+				})
+			}
+		</div>
+	</div>
+</Section>
+
+<style>
+	.feature-item {
+		opacity: 0;
+		transform: translateY(20px);
+		animation: fadeInUp 0.6s ease-out forwards;
+	}
+
+	@keyframes fadeInUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Optional: Add animation on scroll instead of page load */
+	@media (prefers-reduced-motion: reduce) {
+		.feature-item {
+			animation: none;
+			opacity: 1;
+			transform: none;
+		}
+	}
+</style>

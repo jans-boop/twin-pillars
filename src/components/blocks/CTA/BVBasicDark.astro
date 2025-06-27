@@ -1,0 +1,38 @@
+---
+// Basic Dark Call To Action section
+// ------------
+// Description: A centered call to action section that contains: a title, text, background image, notification and a button.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+// - UI
+import CTA from '../../ui/CTA.astro'
+import Button from '../../ui/Button.astro'
+import ChipNotification from '../../ui/ChipNotification.astro'
+import { Image } from 'astro:assets'
+import Highlight from '../../ui/Highlight.astro'
+
+// Content
+import ctaImage from '../../../assets/cta-dark-bg.png'
+import badge from '../../../assets/badge.svg'
+---
+
+<Section>
+	<Row>
+		<Col span="1" />
+		<Col span="18">
+			<CTA
+				title="Partner with Twin Pillars today and leverage our extensive experience and rigorous methodology to unlock the true economic value of your business, setting you on a path for sustained growth and success."
+				text="Contact us today to secure a valuation that drives your strategic objectives forward!"
+				mode="dark"
+				bg={ctaImage}
+			>
+				<Button size="lg" style="primary" link="/#contact"> Contact Us Now! </Button>
+			</CTA>
+		</Col>
+		<Col span="1" />
+	</Row>
+</Section>

@@ -1,0 +1,53 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+// - UI
+import Feature from '../components/blocks/features/BVFeatureList.astro'
+import Feature2 from '../components/blocks/features/BVFeatureList2.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
+import CTA from '../components/blocks/CTA/BVBasicDark.astro'
+
+// Data
+import featuresData from '../data/json-files/BVfeaturesData.json'
+
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Twin Pillars | Your One-Stop Valuation Partners',
+	description:
+		'Skilled valuation professionals unlocking asset value to drive business growth'
+}
+
+// - Page Header
+const header = {
+	title: '<strong>Business Valuation</strong>',
+	text: 'Unlock Your Business\'s True Potential'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+	<Section id="features">
+		<Row>
+			<Col span="12" align="center" classes=" max-w-6xl mx-auto">
+				<div class="text-lg space-y-16">
+					<div>
+						<h3 class="text-xl font-semibold">Comprehensive Valuation Excellence</h3>
+						<p>
+							In today's dynamic market, understanding the economic value of your business is more critical than ever. At Twin Pillars, with our extensive affiliates in Asia, we provide comprehensive Business Valuation services designed to unveil the true worth of your company, empowering you to make informed, strategic decisions.
+
+						</p>
+					</div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+	<Feature />
+	<Feature2 />
+	<CTA />
+</Layout>

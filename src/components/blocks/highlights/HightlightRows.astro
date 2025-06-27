@@ -1,0 +1,185 @@
+---
+// Team Asia Section
+// ------------
+// Description: Team members showcase with profile cards
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+
+// Team data
+const teamMembers = [
+	{
+		name: 'Mr. Milton Tan',
+		credentials: 'B.Com (VPM), NZ, MRICS',
+		location: 'Singapore (HQ)',
+		position: 'Founder and MD',
+		specialization: 'Plant and Machinery Valuation',
+		image: null // placeholder for now
+	},
+	{
+		name: 'Mr. Milton Tan',
+		credentials: 'MRICS',
+		location: 'Malaysia',
+		position: 'Managing Director',
+		specialization: 'Valuation & Advisory, Asia',
+		image: null
+	},
+	{
+		name: 'Mr. Ratchaphum Jongpakdee',
+		credentials: 'MRICS',
+		location: 'Thailand',
+		position: 'Managing Director',
+		specialization: 'Real Estate Valuation and Advisory',
+		image: null
+	},
+	{
+		name: 'Ms. Huynh Ngoc Thuy Huong',
+		credentials: 'MRICS',
+		location: 'Vietnam',
+		position: 'Chief Valuer',
+		specialization: 'Real Estate Valuation and Advisory',
+		image: null
+	},
+	{
+		name: 'Mr. Sorn Seap',
+		credentials: 'CVEA',
+		location: 'Cambodia',
+		position: 'Managing Director',
+		specialization: 'Real Estate Valuation and Advisory',
+		image: null
+	},
+	{
+		name: 'Mr. Ratchaphum Jongpakdee',
+		credentials: 'MRICS',
+		location: 'Laos',
+		position: 'Managing Director',
+		specialization: 'Real Estate Valuation and Advisory',
+		image: null
+	}
+]
+
+// Props
+type Props = {
+	classes?: string
+}
+const { classes } = Astro.props;
+---
+
+<div class={`bg-white ${classes || ''}`} id="team">
+	<Section classes="py-20">
+		<!-- Header -->
+		<Row>
+			<Col span="12" align="center" classes="mb-16">
+				<h2 class="text-4xl lg:text-5xl font-bold text-neutral-900 mb-8">
+					Team Asia
+				</h2>
+				<p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+					Meet our experienced professionals across Asia
+				</p>
+			</Col>
+		</Row>
+
+		<!-- Team Grid -->
+		<Row classes="gap-y-12">
+			{
+				teamMembers.map((member, index) => (
+					<Col span="4">
+						<div class="team-card bg-white rounded-2xl p-8 text-center shadow-lg border border-neutral-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+							<!-- Profile Image Placeholder -->
+							<div class="profile-image-wrapper mb-6">
+								<div class="w-32 h-32 bg-neutral-100 rounded-full mx-auto flex items-center justify-center">
+									<svg class="w-16 h-16 text-neutral-800" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+									</svg>
+								</div>
+							</div>
+
+							<!-- Member Info -->
+							<div class="member-info space-y-3">
+								<h3 class="text-xl font-bold text-neutral-900">
+									{member.name}
+								</h3>
+								<!-- Position -->
+								<div class="text-lg font-semibold text-neutral-800 ">
+									{member.position}
+								</div>
+								<div class=" text-sm text-neutral-600 font-medium">
+									{member.credentials}
+								</div>
+
+								<!-- Location Badge -->
+								<div class="flex justify-center">
+									<span class="inline-block bg-neutral-50 text-neutral-800 text-sm font-medium px-4 py-1 rounded-full ">
+										{member.location}
+									</span>
+								</div>
+
+
+								<!-- Specialization -->
+								<div class=" text-neutral-800 leading-relaxed ">
+									{member.specialization}
+								</div>
+							</div>
+						</div>
+					</Col>
+				))
+			}
+		</Row>
+	</Section>
+</div>
+
+<style>
+	/* Team card styling */
+	.team-card {
+		position: relative;
+		overflow: hidden;
+	}
+
+	/* Profile image placeholder styling */
+	.profile-image-wrapper {
+		transition: transform 0.3s ease;
+	}
+
+	.team-card:hover .profile-image-wrapper {
+		transform: scale(1.05);
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 1024px) {
+		.team-card {
+			margin-bottom: 2rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		/* Stack cards on mobile */
+		:global(.team-grid) {
+			grid-template-columns: 1fr;
+		}
+		
+		.team-card {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	/* Dark mode support */
+	:global(.dark) .team-card {
+		background: rgba(38, 38, 38, 0.95);
+		border-color: rgba(115, 115, 115, 0.3);
+	}
+
+	:global(.dark) .team-card h3 {
+		color: white;
+	}
+
+	:global(.dark) .team-card .text-neutral-800 {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	:global(.dark) .team-card .text-neutral-600 {
+		color: rgba(255, 255, 255, 0.7);
+	}
+</style>
