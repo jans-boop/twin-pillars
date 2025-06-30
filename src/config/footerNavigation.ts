@@ -75,15 +75,15 @@ export const footerNavigationData: FooterData = {
 			subCategories: [
 			  {
 				subCategory: 'Machinery and Equipment Valuation',
-				subCategoryLink: '/services/machinery-equipment'
+				subCategoryLink: '/machinery-and-equipment-valuation'
 			  },
 			  {
 				subCategory: 'Business Valuation',
-				subCategoryLink: '/services/business'
+				subCategoryLink: '/business-valuation'
 			  },
 			  {
 				subCategory: 'Real Estate Valuation',
-				subCategoryLink: '/services/real-estate'
+				subCategoryLink: '/real-estate-valuation'
 			  }
 			]
 		  },
