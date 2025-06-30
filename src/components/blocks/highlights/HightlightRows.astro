@@ -68,15 +68,15 @@ type Props = {
 const { classes } = Astro.props;
 ---
 
-<div class={`bg-white ${classes || ''}`} id="team">
+<div class={`bg-neutral-800 ${classes || ''}`} id="team">
 	<Section classes="py-20">
 		<!-- Header -->
 		<Row>
 			<Col span="12" align="center" classes="mb-16">
-				<h2 class="text-4xl lg:text-5xl font-bold text-neutral-900 mb-8">
+				<h2 class="text-4xl lg:text-5xl font-bold text-neutral-50 mb-8">
 					Team Asia
 				</h2>
-				<p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+				<p class="text-lg text-neutral-100 max-w-2xl mx-auto">
 					Meet our experienced professionals across Asia
 				</p>
 			</Col>
@@ -87,7 +87,7 @@ const { classes } = Astro.props;
 			{
 				teamMembers.map((member, index) => (
 					<Col span="4">
-						<div class="team-card bg-white rounded-2xl p-8 text-center shadow-lg border border-neutral-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+						<div class="team-card bg-neutral-50 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
 							<!-- Profile Image Placeholder -->
 							<div class="profile-image-wrapper mb-6">
 								<div class="w-32 h-32 bg-neutral-100 rounded-full mx-auto flex items-center justify-center">

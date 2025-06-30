@@ -64,8 +64,8 @@ export default {
         fancy: "url(https://www.svgrepo.com/show/269/color-picker.svg)",
       },
       fontFamily: {
-        sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
-        headings: ["Inter Variable", ...defaultTheme.fontFamily.sans],
+        sans: ["Noto Sans", ...defaultTheme.fontFamily.sans],
+        headings: ["Noto Sans", ...defaultTheme.fontFamily.sans],
         },
       keyframes: {
         dropdown: {

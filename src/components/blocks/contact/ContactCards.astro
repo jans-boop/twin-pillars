@@ -54,23 +54,23 @@ const { bg, classes } = Astro.props;
 ---
 
 	<!-- Company Information Section -->
-	<Section id="about" classes="py-20">
+	<Section id="about" classes="py-20 bg-neutral-800">
 		<Row>
 			<Col span="8" classes="pr-12">
 				<div class="space-y-8">
-					<h2 class="text-4xl lg:text-5xl font-bold text-neutral-900 mb-6 leading-tight">
+					<h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
 						Built on 
-						<span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+						<span class="bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent">
 							Unparalleled Experience
 						</span>
 					</h2>
 					
-					<div class="space-y-6 text-lg text-neutral-700 leading-relaxed">
+					<div class="space-y-6 text-lg text-neutral-100 leading-relaxed">
 						<p>
 							At Twin Pillars, our foundation is built on unparalleled experience. Our esteemed founder, 
 							Mr. Milton Tan, spearheads our 
 							machinery and equipment valuation practice with over three decades of experience, contributing to a 
-							staggering <span class="font-semibold text-neutral-900">USD 30 billion</span> in volume. This profound market understanding and exceptional capability 
+							staggering <span class="font-semibold text-white">USD 30 billion</span> in volume. This profound market understanding and exceptional capability 
 							underscore our commitment to excellence.
 						</p>
 						<p>
@@ -87,19 +87,19 @@ const { bg, classes } = Astro.props;
 					<!-- Years of Experience Card -->
 					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 						<div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent mb-2">30+</div>
-						<div class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Years of Experience</div>
+						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">Years of Experience</div>
 					</div>
 					
 					<!-- USD Valuation Volume Card -->
 					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 						<div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent mb-2">$30B</div>
-						<div class="text-sm font-medium text-neutral-600 dark:text-neutral-400">USD Valuation Volume</div>
+						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">USD Valuation Volume</div>
 					</div>
 					
 					<!-- Countries Covered Card -->
 					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 						<div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent mb-2">6</div>
-						<div class="text-sm font-medium text-neutral-600 dark:text-neutral-400">Countries Covered</div>
+						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">Countries Covered</div>
 					</div>
 				</div>
 			</Col>
@@ -107,14 +107,14 @@ const { bg, classes } = Astro.props;
 	</Section>
 
 	<!-- Excellence in Valuation Section -->
-	<Section classes="py-20 bg-gradient-to-br from-neutral-800 to-neutral-900">
+	<Section classes="py-20 bg-gradient-to-br from-white to-neutral-50">
 		<Row>
 			<Col span="12" align="center" classes="mb-16">
 				<h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
 					<span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">Excellence</span>
-					<span class="text-neutral-50"> in Valuation</span>
+					<span class="text-neutral-700"> in Valuation</span>
 				</h2>
-				<p class="text-lg text-neutral-200 leading-relaxed max-w-8xl mx-auto">
+				<p class="text-lg text-neutral-600 leading-relaxed max-w-8xl mx-auto">
 					At Twin Pillars, quality and adherence to global standards are paramount. Every report we produce is meticulously prepared, strictly 
 					following the rigorous benchmarks set by the Royal Institution of Chartered Surveyors (RICS) and International Valuation Standards 
 					(IVS). This unwavering commitment to best practices and superior service has cemented our reputation as trusted valuers in the 
@@ -129,7 +129,7 @@ const { bg, classes } = Astro.props;
 			{
 				certificationLogos.map((cert) => (
 					<Col span="3">
-						<div class="group certification-card bg-gradient-to-br from-white to-neutral-50 rounded-2xl p-8 text-center shadow-lg border border-neutral-600 hover:border-primary-400 h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+						<div class="group certification-card bg-gradient-to-br from-neutral-600 to-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-800 hover:border-primary-400 h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
 							<div class="cert-logo-wrapper mb-6">
 								<div class="h-16 flex items-center justify-center mb-4">
 									<Image 
@@ -139,10 +139,10 @@ const { bg, classes } = Astro.props;
 									/>
 								</div>
 							</div>
-							<h3 class="text-lg font-bold text-neutral-900 mb-2">
+							<h3 class="text-lg font-bold text-white mb-2">
 								{cert.title}
 							</h3>
-							<p class="text-sm text-neutral-600 leading-relaxed">
+							<p class="text-sm text-neutral-100 leading-relaxed">
 								{cert.subtitle}
 							</p>
 						</div>
@@ -154,11 +154,11 @@ const { bg, classes } = Astro.props;
 		<!-- Trust Badge -->
 		<Row classes="mt-16">
 			<Col span="12" align="center">
-				<div class="inline-flex items-center gap-3 bg-gradient-to-r from-neutral-50 to-primary-50 rounded-full px-8 py-4 border border-neutral-200">
-					<svg class="w-6 h-6 text-neutral-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<div class="inline-flex items-center gap-3 bg-gradient-to-r from-primary-600 to-primary-500 rounded-full px-8 py-4 border border-white">
+					<svg class="w-6 h-6 text-neutral-900" fill="none" stroke="white" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
 					</svg>
-					<span class="text-neutral-900 font-semibold">
+					<span class="text-white font-semibold">
 						Trusted insights backed by the highest global standards
 					</span>
 				</div>
