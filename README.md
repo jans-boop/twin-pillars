@@ -1,7 +1,7 @@
 
 # Twin Pillars Website
 
-A modern, responsive website for Twin Pillars, showcasing our services, mission, and expertise.
+A modern, responsive website for Twin Pillars, showcasing thier services and expertise.
 
 ## Overview
 
