@@ -22,7 +22,7 @@ const { title, subtitle, image, link } = Astro.props
 ---
 
 <!-- Image Overlay Card Style with White Text Background and Button -->
-<div class="overflow-hidden bg-white rounded-2xl shadow-none border border-neutral-100 dark:border-neutral-800 h-96 group cursor-pointer hover:shadow-lg transition-shadow duration-300">
+<div class="overflow-hidden bg-white rounded-2xl shadow-none border border-neutral-100 dark:border-neutral-800 h-72 group cursor-pointer hover:shadow-lg transition-shadow duration-300">
 	<!-- Image with overlay -->
 	<figure class="relative h-full">
 		<img 
@@ -30,18 +30,20 @@ const { title, subtitle, image, link } = Astro.props
 			alt={title} 
 			class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
 		/>
-		<figcaption class="absolute bottom-0 left-0 w-full p-6">
-			<!-- White background container for text -->
-			<div class="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
-				<h3 class="text-xl font-semibold mb-2 text-yellow-900">{title}</h3>
-				<p class="text-sm text-yellow-700 line-clamp-3 mb-6">{subtitle}</p>
+		<figcaption class="absolute inset-0">
+			<!-- White background container for text covering entire card -->
+			<div class="bg-white/75 w-full h-full flex flex-col p-6 rounded-2xl">
+				<h3 class="text-2xl font-semibold text-neutral-800">{title}</h3>
+				<p class="text-lg text-neutral-800 line-clamp-3 mb-4">{subtitle}</p>
+				<!-- Spacer to push button to bottom -->
+				<div class="flex-grow"></div>
 				<!-- Button with custom width and hover effects -->
 				<Button 
 					type="link" 
 					link={link} 
 					size="lg" 
-					style="neutral"
-					classes="inline-block px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300"
+					style="primary"
+					classes="!px-2 !w-40 bg-neutral-500 text-white rounded-full hover:bg-blue-700 transition-colors duration-300"
 				>
 					Learn More →
 				</Button>

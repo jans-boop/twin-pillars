@@ -13,35 +13,35 @@ import Card from '../../ui/cards/BasicCard.astro'
 import { Image } from 'astro:assets'
 
 // Content - Certification logos (corrected paths)
-import ivs from '../../../assets/ivs-logo.svg'
+import ivs from '../../../assets/ivsc-logo.png'
 import rics from '../../../assets/Rics-Logo.png'
-import ifrs from '../../../assets/ifrs-logo.svg'
+import ifrs from '../../../assets/ifrs-logo.png'
 import sisv from '../../../assets/sisv-logo.png'
 
 const certificationLogos = [
 	{
-		image: rics,
-		alt: 'RICS Compliant',
-		title: 'RICS Compliant',
-		subtitle: 'Royal Institution of Chartered Surveyors'
-	},
-	{
 		image: ivs,
 		alt: 'IVS Standards',
-		title: 'IVS Standards',
-		subtitle: 'International Valuation Standards'
+		title: 'International Valuation Standards (IVS)',
+		subtitle: 'IVS covers the valuation of a range of assets -- financial instruments, fixed assets, intangible assets & business interests.'
+	},
+		{
+		image: sisv,
+		alt: 'SISV Member',
+		title: 'Singapore Institute Of Surveyors And Valuers (SISV)',
+		subtitle: 'The Institute was established in 1982 when the Singapore Institute of surveyors and the Singapore Institute of Valuers merged. The Valuers give advice on the values of interests in property upon which all real estate activities are based on.'
+	},
+	{
+		image: rics,
+		alt: 'RICS Compliant',
+		title: 'Royal Institution Of Chartered Surveyors (RICS)',
+		subtitle: 'RICS provides valuation standards, protects consumers with strict codes of practice and advises governments and business. RICS provides expertise in matters involving fixed assets, including but not limited to land and real property.'
 	},
 	{
 		image: ifrs,
 		alt: 'IFRS Reporting',
-		title: 'IFRS Reporting',
-		subtitle: 'International Financial Reporting Standards'
-	},
-	{
-		image: sisv,
-		alt: 'SISV Member',
-		title: 'SISV Member',
-		subtitle: 'Singapore Institute of Surveyors and Valuers'
+		title: 'International Financial Reporting Standards (IFRS)',
+		subtitle: 'IFRS is a common global language for business affairs so that company accounts are understandable and comparable across international boundaries.'
 	}
 ]
 
@@ -53,24 +53,46 @@ type Props = {
 const { bg, classes } = Astro.props;
 ---
 
-	<!-- Company Information Section -->
-	<Section id="about" classes="py-20 bg-neutral-800">
+	<!-- Combined About Us & Experience Section -->
+	<Section id="about" classes=" bg-white">
+		<!-- About Us Introduction
+		<Row classes="mb-16">
+			<Col span="12" align="center">
+				<h2 class="text-4xl lg:text-5xl font-bold text-neutral-700 mb-6 leading-tight">
+					About Us
+				</h2>
+				<p class="text-lg text-neutral-700 leading-relaxed max-w-8xl mt-8 mx-auto">
+					Twin Pillars is a premier valuation firm committed to providing a comprehensive suite of appraisal services tailored to your needs. We specialize in delivering precise, defensible valuations across all major asset classes, simplifying complex appraisal processes and empowering your strategic decisions.
+				</p>
+			</Col>
+		</Row> -->
+
+		<!-- Experience Content -->
 		<Row>
 			<Col span="8" classes="pr-12">
-				<div class="space-y-8">
-					<h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+				<div class="">
+					<h3 class="text-4xl lg:text-5xl font-bold text-neutral-800 leading-tight">
+						About Us
+					</h3>
+					
+					<div class=" text-lg text-neutral-800 leading-relaxed">
+						<p>
+							Twin Pillars is a premier valuation firm committed to providing a comprehensive suite of appraisal services tailored to your needs. We specialize in delivering precise, defensible valuations across all major asset classes, simplifying complex appraisal processes and empowering your strategic decisions.
+						</p>
+					</div>
+					<h3 class="text-4xl lg:text-5xl font-bold text-neutral-800 mt-10 leading-tight">
 						Built on 
-						<span class="bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent">
+						<span class="bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent">
 							Unparalleled Experience
 						</span>
-					</h2>
+					</h3>
 					
-					<div class="space-y-6 text-lg text-neutral-100 leading-relaxed">
+					<div class="space-y-6 text-lg text-neutral-800 leading-relaxed">
 						<p>
 							At Twin Pillars, our foundation is built on unparalleled experience. Our esteemed founder, 
 							Mr. Milton Tan, spearheads our 
 							machinery and equipment valuation practice with over three decades of experience, contributing to a 
-							staggering <span class="font-semibold text-white">USD 30 billion</span> in volume. This profound market understanding and exceptional capability 
+							staggering <span class="font-semibold text-neutral-800">USD 30 billion</span> in volume. This profound market understanding and exceptional capability 
 							underscore our commitment to excellence.
 						</p>
 						<p>
@@ -82,24 +104,24 @@ const { bg, classes } = Astro.props;
 					</div>
 				</div>
 			</Col>
-			<Col span="4" classes="pl-8">
-				<div class="space-y-6">
+			<Col span="4" classes="pl-8 mt-12">
+				<div class=" space-y-8">
 					<!-- Years of Experience Card -->
 					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-						<div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent mb-2">30+</div>
+						<div class="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-2">30+</div>
 						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">Years of Experience</div>
 					</div>
 					
 					<!-- USD Valuation Volume Card -->
 					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-						<div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent mb-2">$30B</div>
+						<div class="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-2">$30B</div>
 						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">USD Valuation Volume</div>
 					</div>
 					
 					<!-- Countries Covered Card -->
 					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-						<div class="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent mb-2">6</div>
-						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">Countries Covered</div>
+						<div class="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-2">36</div>
+						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">Countries Covered across Asia Pacific</div>
 					</div>
 				</div>
 			</Col>
@@ -107,14 +129,14 @@ const { bg, classes } = Astro.props;
 	</Section>
 
 	<!-- Excellence in Valuation Section -->
-	<Section classes="py-20 bg-gradient-to-br from-white to-neutral-50">
+	<Section classes="py-20 bg-neutral-800">
 		<Row>
 			<Col span="12" align="center" classes="mb-16">
 				<h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-					<span class="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">Excellence</span>
-					<span class="text-neutral-700"> in Valuation</span>
+					<span class="bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent">Excellence</span>
+					<span class="text-white"> in Valuation</span>
 				</h2>
-				<p class="text-lg text-neutral-600 leading-relaxed max-w-8xl mx-auto">
+				<p class="text-lg text-neutral-50 leading-relaxed max-w-8xl mx-auto">
 					At Twin Pillars, quality and adherence to global standards are paramount. Every report we produce is meticulously prepared, strictly 
 					following the rigorous benchmarks set by the Royal Institution of Chartered Surveyors (RICS) and International Valuation Standards 
 					(IVS). This unwavering commitment to best practices and superior service has cemented our reputation as trusted valuers in the 
@@ -129,7 +151,7 @@ const { bg, classes } = Astro.props;
 			{
 				certificationLogos.map((cert) => (
 					<Col span="3">
-						<div class="group certification-card bg-gradient-to-br from-neutral-600 to-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-800 hover:border-primary-400 h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+						<div class="group certification-card bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-8 text-center shadow-lg border border-neutral-100 hover:border-primary-400 h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
 							<div class="cert-logo-wrapper mb-6">
 								<div class="h-16 flex items-center justify-center mb-4">
 									<Image 
@@ -139,10 +161,10 @@ const { bg, classes } = Astro.props;
 									/>
 								</div>
 							</div>
-							<h3 class="text-lg font-bold text-white mb-2">
+							<h3 class="text-lg font-semibold text-neutral-800 mb-2">
 								{cert.title}
 							</h3>
-							<p class="text-sm text-neutral-100 leading-relaxed">
+							<p class="text-sm text-neutral-700 leading-relaxed">
 								{cert.subtitle}
 							</p>
 						</div>
@@ -152,13 +174,13 @@ const { bg, classes } = Astro.props;
 		</Row>
 
 		<!-- Trust Badge -->
-		<Row classes="mt-16">
+		<Row classes="mt-20">
 			<Col span="12" align="center">
-				<div class="inline-flex items-center gap-3 bg-gradient-to-r from-primary-600 to-primary-500 rounded-full px-8 py-4 border border-white">
-					<svg class="w-6 h-6 text-neutral-900" fill="none" stroke="white" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+				<div class="inline-flex items-center gap-3 bg-gradient-to-r from-primary-400 to-primary-300 rounded-full px-12 py-6 border border-neutral-400">
+					<svg class="w-8 h-8 text-neutral-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path class="stroke-neutral-800" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
 					</svg>
-					<span class="text-white font-semibold">
+					<span class="text-lg text-neutral-800 font-semibold">
 						Trusted insights backed by the highest global standards
 					</span>
 				</div>

@@ -33,12 +33,13 @@ export interface NavData {
 
 export const navigationBarData: NavData = {
 	logo: {
-		src: '/logo.svg',
+		src: '/logo.png',
 		alt: 'Your One-Stop Valuation Partner',
-		text: 'Twin Pillars'
+		text: ''
 	},
 	navItems: [
 		{ name: 'Home', link: '/' },
+		{ name: 'About', link: '/#about' },
 		{
 			name: 'Services',
 			link: '/#services',
@@ -48,9 +49,9 @@ export const navigationBarData: NavData = {
 				{ name: 'Real Estate Valuation', link: '/real-estate-valuation' }
 			]
 		},
-		{ name: 'About', link: '/#about' },
 		{ name: 'Team', link: '/#team' },
-		{ name: 'Contact', link: '/#contact' }
+		{ name: 'Contact', link: '/#contact' },
+		{ name: 'Social Media', link: '/#social-media' }
 	],
 	navActions: []
 }

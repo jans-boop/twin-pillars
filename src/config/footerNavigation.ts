@@ -36,12 +36,11 @@ export interface FooterData {
 export const footerNavigationData: FooterData = {
 	footerAbout: {
 		title: 'Twin Pillars',
-		aboutText:
-			'Your One-Stop Valuation Partner, skilled valuation professionals unlocking asset value to drive business growth.',
+		aboutText: "Your One-Stop Valuation Partner,<br>skilled valuation professionals<br>unlocking asset value<br>to drive business growth.",
 		logo: {
-			src: '/logo.svg',
-			alt: 'The tailwind astro theme',
-			text: 'Twin Pillars'
+			src: '/logo.png',
+			alt: 'Your One-Stop Valuation Partner',
+			text: ''
 		}
 	},
 	footerColumns: [
@@ -53,12 +52,12 @@ export const footerNavigationData: FooterData = {
 				subCategoryLink: '/'
 			  },
 			  {
-				subCategory: 'Services',
-				subCategoryLink: '/#services'
-			  },
-			  {
 				subCategory: 'About',
 				subCategoryLink: '/#about'
+			  },
+			  {
+				subCategory: 'Services',
+				subCategoryLink: '/#services'
 			  },
 			  {
 				subCategory: 'Team',
@@ -67,6 +66,10 @@ export const footerNavigationData: FooterData = {
 			  {
 				subCategory: 'Contact',
 				subCategoryLink: '/#contact'
+			  },
+			  {
+				subCategory: 'Social Media',
+				subCategoryLink: '/#social-media'
 			  }
 			]
 		  },
@@ -91,12 +94,12 @@ export const footerNavigationData: FooterData = {
 		  {
 			category: 'Terms',
 			subCategories: [			  {
-				subCategory: 'Terms of Service',
+				subCategory: 'Terms of Use',
 				subCategoryLink: '/terms'
 			  }]
 		  }
 	],
 	subFooter: {
-		copywriteText: '© Twin Pillars 2025.'
+		copywriteText: '© 2025 Twin Pillars – All Rights Reserved.'
 	}
 }

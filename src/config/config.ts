@@ -24,9 +24,9 @@ export const configData: Config = {
 	siteTitle: 'Twin Pillars',
 	siteDescription:
 		'Your One-Stop Valuation Partner',
-	ogImage: '/og.jpg',
+	ogImage: '/logo-w-bg.svg',
 	logo: {
-		src: '/logo.svg',
+		src: '/logo-w-bg.svg',
 		alt: 'Twin Pillars logo'
 	},
 	canonical: true,

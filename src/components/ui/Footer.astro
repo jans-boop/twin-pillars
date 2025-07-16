@@ -22,11 +22,13 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 			<div class="footer__cols">
 				<div class="footer__col">
 					<a aria-label="webiste logo" aria-current="page" class="footer__main-brand" href="/">
-						<img src={footerAbout.logo.src} alt={footerAbout.logo.alt} width="32" height="32" />
+						<img src={footerAbout.logo.src} alt={footerAbout.logo.alt} width="100" height="100" />
 						{footerAbout.logo.text}
 					</a>
 					<p>
-						{footerAbout.aboutText}
+					Your One-Stop Valuation Partner,<br>
+					Skilled valuation professionals unlocking <br>
+					asset value to drive business growth.
 					</p>
 				</div>
 				{
@@ -75,10 +77,10 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 		@apply text-white;
 	}
 	.footer a {
-		@apply transition-colors duration-300 hover:text-yellow-400 focus:text-emerald-300;
+		@apply transition-colors duration-300 hover:text-yellow-400 focus:text-yellow-600;
 	}
 	.footer__main {
-		@apply border-t border-slate-700 bg-slate-800 pb-12 pt-16 text-sm [&_li]:mb-2 [&_li]:leading-6;
+		@apply border-t border-neutral-700 bg-neutral-900 pb-12 pt-16 text-sm [&_li]:mb-2 [&_li]:leading-6;
 	}
 	.footer__main h3 {
 		@apply mb-6 text-base font-medium leading-8 text-white;
@@ -98,7 +100,7 @@ const { footerAbout, footerColumns, subFooter } = footerNavigationData
 		@apply col-span-2 first:col-span-4 md:col-span-4 md:first:col-span-8 lg:col-span-2 lg:first:col-span-6 lg:first:max-w-96;
 	}
 	.footer__sub {
-		@apply border-t border-slate-700 bg-slate-700 py-4 text-sm text-white;
+		@apply border-t border-neutral-800 bg-slate-700 py-4 text-sm text-white;
 	}
 	.footer__sub ul {
 		@apply flex items-center justify-end gap-6;

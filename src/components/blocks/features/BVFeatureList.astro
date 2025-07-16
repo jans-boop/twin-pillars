@@ -17,53 +17,101 @@ import features from '../../../data/json-files/BVfeaturesData.json'
 const { id = 'intro', title, text, classes } = Astro.props
 ---
 
-<Section id="features" classes=`bg-neutral-50 dark:bg-neutral-900 text-white ${classes}`>
+<Section id="features" classes=`bg-gray-50 dark:bg-neutral-900 text-white ${classes}`>
 	<Row>
-		<Col span="12" align="center" classes="mb-28 max-w-6xl mx-auto">
-			<h4 class="text-pretty">Our independent business valuations are essential for a multitude of scenarios, ensuring you have a clear, objective assessment for pivotal moments such as: </h4>
+		<Col span="12" align="center" classes="mb-16 max-w-6xl mx-auto">
+			<h4 class="text-xl text-neutral-800"> Our independent business valuations are essential for a multitude of scenarios, ensuring you have a clear, objective assessment for pivotal moments such as: </h4>
 		</Col>
 	</Row>
 	
-	<div class="max-w-6xl mx-auto">
-		{/* First 11 features in 4-column grid */}
-		<div class="grid grid-cols-4 gap-x-6 gap-y-16 mb-16">
-			{
-				features.slice(0, 8).map((feature, index) => {
-					return (
-						<div 
-							class="w-full h-24 flex items-center justify-center feature-item"
-							style={`animation-delay: ${index * 0.1}s`}
-						>
-							<Feature title={feature.title} icon={feature.icon} align="center" />
-						</div>
-					);
-				})
-			}
-		</div>
-		
-		{/* Last 3 features centered */}
-		<div class="flex justify-center gap-x-6">
-			{
-				features.slice(8, 11).map((feature, index) => {
-					return (
-						<div 
-							class="w-full max-w-xs h-24 flex items-center justify-center feature-item"
-							style={`animation-delay: ${(11 + index) * 0.1}s`}
-						>
-							<Feature title={feature.title} icon={feature.icon} align="center" />
-						</div>
-					);
-				})
-			}
-		</div>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10 max-w-7xl mx-auto">
+		{
+			features.slice(0, 14).map((feature, index) => {
+				return (
+					<div 
+						class="feature-item group"
+						style={`animation-delay: ${index * 0.1}s`}
+					>
+						<Feature 
+							title={feature.title} 
+							icon={feature.icon} 
+							align="center" 
+							classes="feature-card"
+						/>
+					</div>
+				);
+			})
+		}
 	</div>
 </Section>
 
 <style>
 	.feature-item {
 		opacity: 0;
-		transform: translateY(20px);
-		animation: fadeInUp 0.6s ease-out forwards;
+		transform: translateY(30px);
+		animation: fadeInUp 0.8s ease-out forwards;
+		transition: transform 0.3s ease;
+	}
+
+	.feature-item:hover {
+		transform: translateY(-5px);
+	}
+
+	/* Make icons larger and improve spacing */
+	.feature-item :global(.feature-card) {
+		padding: 2rem 1.5rem;
+		height: auto;
+		min-height: 180px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 12px;
+		border: 1px solid rgba(223, 226, 232, 0.8);
+		backdrop-filter: blur(10px);
+		transition: all 0.3s ease;
+	}
+
+	.feature-item:hover :global(.feature-card) {
+		background: rgba(255, 255, 255, 0.95);
+		border-color: rgba(59, 130, 246, 0.3);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	}
+
+	/* Increase icon size */
+	.feature-item :global(.feature-card svg),
+	.feature-item :global(.feature-card i) {
+		width: 80px !important;
+		height: 80px !important;
+		font-size: 80px !important;
+		margin-bottom: 1rem;
+		color: #e0ba10;
+	}
+	/* Improve text styling */
+	.feature-item :global(.feature-card h3),
+	.feature-item :global(.feature-card .title) {
+		font-size: 1rem;
+		font-weight: 600;
+		text-align: center;
+		line-height: 1.4;
+		color: #132254;
+		margin: 0;
+	}
+
+	.dark .feature-item :global(.feature-card) {
+		background: rgba(31, 41, 55, 0.8);
+		border-color: rgba(75, 85, 99, 0.5);
+	}
+
+	.dark .feature-item:hover :global(.feature-card) {
+		background: rgba(31, 41, 55, 0.95);
+		border-color: rgba(59, 130, 246, 0.4);
+	}
+
+	.dark .feature-item :global(.feature-card h3),
+	.dark .feature-item :global(.feature-card .title) {
+		color: #f3f4f6;
 	}
 
 	@keyframes fadeInUp {
@@ -73,11 +121,29 @@ const { id = 'intro', title, text, classes } = Astro.props
 		}
 	}
 
-	/* Optional: Add animation on scroll instead of page load */
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.feature-item :global(.feature-card) {
+			min-height: 160px;
+			padding: 1.5rem 1rem;
+		}
+		
+		.feature-item :global(.feature-card svg),
+		.feature-item :global(.feature-card i) {
+			width: 40px !important;
+			height: 40px !important;
+			font-size: 40px !important;
+		}
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		.feature-item {
 			animation: none;
 			opacity: 1;
+			transform: none;
+		}
+		
+		.feature-item:hover {
 			transform: none;
 		}
 	}
