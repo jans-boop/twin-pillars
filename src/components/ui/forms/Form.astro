@@ -10,17 +10,26 @@
 
 type Props = {
   method?: 'post' | 'get' | 'dialog'
+  action?: string
   classes?: string
   id?: string
   name?: string
 }
 
-const { method = 'post', classes, id, name } = Astro.props
+const { method = 'post', action, classes, id, name } = Astro.props
 
 // Use id as name if name is not set but id is set
 const formName = name || id || undefined;
 ---
 
-<form method={method} novalidate class:list={[{ [`${classes}`]: classes }]} id={id} name={formName}>
-	<slot />
+<form 
+  method={method} 
+  action={action}
+  novalidate 
+  class:list={[{ [`${classes}`]: classes }]} 
+  id={id} 
+  name={formName}
+>
+  <slot />
 </form>
+
