@@ -25,12 +25,6 @@ const certificationLogos = [
 		title: 'International Valuation Standards (IVS)',
 		subtitle: 'IVS covers the valuation of a range of assets -- financial instruments, fixed assets, intangible assets & business interests.'
 	},
-		{
-		image: sisv,
-		alt: 'SISV Member',
-		title: 'Singapore Institute Of Surveyors And Valuers (SISV)',
-		subtitle: 'The Institute was established in 1982 when the Singapore Institute of surveyors and the Singapore Institute of Valuers merged. The Valuers give advice on the values of interests in property upon which all real estate activities are based on.'
-	},
 	{
 		image: rics,
 		alt: 'RICS Compliant',
@@ -42,6 +36,12 @@ const certificationLogos = [
 		alt: 'IFRS Reporting',
 		title: 'International Financial Reporting Standards (IFRS)',
 		subtitle: 'IFRS is a common global language for business affairs so that company accounts are understandable and comparable across international boundaries.'
+	},
+	{
+		image: sisv,
+		alt: 'SISV Member',
+		title: 'Singapore Institute Of Surveyors And Valuers (SISV)',
+		subtitle: 'The Institute was established in 1982 when the Singapore Institute of surveyors and the Singapore Institute of Valuers merged. The Valuers give advice on the values of interests in property upon which all real estate activities are based on.'
 	}
 ]
 
@@ -54,7 +54,7 @@ const { bg, classes } = Astro.props;
 ---
 
 	<!-- Combined About Us & Experience Section -->
-	<Section id="about" classes=" bg-white">
+	<Section id="about-us" classes=" bg-white">
 		<!-- About Us Introduction
 		<Row classes="mb-16">
 			<Col span="12" align="center">
@@ -105,26 +105,33 @@ const { bg, classes } = Astro.props;
 				</div>
 			</Col>
 			<Col span="4" classes="mt-16">
-				<div class=" space-y-8">
+				<div class="space-y-8">
 					<!-- Years of Experience Card -->
-					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-						<div class="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-2">30+</div>
+					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 opacity-0 translate-y-8">
+						<div class="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-2">
+							<span class="counter" data-target="30">30</span>+
+						</div>
 						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">Years of Experience</div>
 					</div>
 					
 					<!-- USD Valuation Volume Card -->
-					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-						<div class="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-2">$30B</div>
+					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 opacity-0 translate-y-8">
+						<div class="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-2">
+							$<span class="counter" data-target="30">30</span>B
+						</div>
 						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">USD Valuation Volume</div>
 					</div>
 					
 					<!-- Countries Covered Card -->
-					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-						<div class="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-2">36</div>
+					<div class="group stat-card bg-white dark:bg-neutral-800 rounded-2xl p-8 text-center shadow-lg border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 opacity-0 translate-y-8">
+						<div class="text-4xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-2">
+							<span class="counter" data-target="36">36</span>
+						</div>
 						<div class="text-sm font-medium font-semibold text-neutral-800 dark:text-neutral-400">Countries Covered across Asia Pacific</div>
 					</div>
 				</div>
 			</Col>
+
 		</Row>
 	</Section>
 
@@ -206,10 +213,6 @@ const { bg, classes } = Astro.props;
 	}
 	
 	/* Enhanced logo styling */
-	.certification-card img {
-		filter: grayscale(0.3) opacity(0.9);
-		transition: all 0.3s ease;
-	}
 	
 	.certification-card:hover img {
 		filter: grayscale(0) opacity(1);
@@ -252,4 +255,86 @@ const { bg, classes } = Astro.props;
 			margin-bottom: 2rem;
 		}
 	}
+
+.stat-card {
+		position: relative;
+		overflow: hidden;
+		transition: all 0.6s ease;
+	}
+	
+	/* Animation states */
+	.stat-card.animate-in {
+		opacity: 1 !important;
+		transform: translateY(0) !important;
+	}
+	
+	/* Counter animation styles */
+	.counter {
+		display: inline-block;
+		transition: all 0.3s ease;
+	}
+	
+	/* Rest of your existing styles... */
 </style>
+
+<script>
+	// Counter Animation Function
+	function animateCounter(element, target, duration = 500) {
+		const start = 0;
+		const increment = target / (duration / 16); // 60fps
+		let current = start;
+		
+		const timer = setInterval(() => {
+			current += increment;
+			if (current >= target) {
+				current = target;
+				clearInterval(timer);
+			}
+			element.textContent = Math.floor(current);
+		}, 16);
+	}
+
+	// Enhanced Intersection Observer
+	const observerOptions = {
+		threshold: 0.3,
+		rootMargin: '0px 0px -100px 0px'
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const card = entry.target;
+				const counter = card.querySelector('.counter');
+				
+				if (counter) {
+					const target = parseInt(counter.getAttribute('data-target'));
+					
+					// Animate card appearance
+					card.classList.add('animate-in');
+					
+					// Reset counter to 0 and start animation
+					counter.textContent = '0';
+					
+					// Start counting animation with delay
+					setTimeout(() => {
+						animateCounter(counter, target, 2500);
+					}, 300);
+				}
+				
+				// Unobserve after animation starts
+				observer.unobserve(card);
+			}
+		});
+	}, observerOptions);
+
+	// Start observing when DOM is loaded
+	document.addEventListener('DOMContentLoaded', () => {
+		const statCards = document.querySelectorAll('.stat-card');
+		statCards.forEach((card, index) => {
+			// Add staggered delay for multiple cards
+			setTimeout(() => {
+				observer.observe(card);
+			}, index * 100);
+		});
+	});
+</script>

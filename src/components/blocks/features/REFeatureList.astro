@@ -17,10 +17,10 @@ import features from '../../../data/json-files/REfeaturesData.json'
 const { id = 'intro', title, text, classes } = Astro.props
 ---
 
-<Section id="features" classes=`bg-gray-50 dark:bg-neutral-900 text-white ${classes}`>
+<Section id="features" classes=`bg-neutral-800  dark:bg-neutral-900 text-white ${classes}`>
 	<Row>
 		<Col span="12" align="center" classes="mb-16 max-w-6xl mx-auto">
-			<h4 class="text-xl text-neutral-800"> Our professional valuation services are trusted for a diverse and critical range of purposes, including: </h4>
+			<h4 class="text-xl text-white"> Our professional valuation services are trusted for a diverse and critical range of purposes, including: </h4>
 		</Col>
 	</Row>
 	
@@ -45,8 +45,8 @@ const { id = 'intro', title, text, classes } = Astro.props
 	</div>
 	
 	<Row>
-	<Col span="12" align="center" classes="mt-16 max-w-8xl mx-auto">
-		<h4 class="text-xl text-neutral-800">Choose Twin Pillars to gain a comprehensive, accurate, and globally compliant understanding of your real estate assets, empowering your most important decisions.
+	<Col span="12" align="center" classes="mt-20 max-w-6xl mx-auto">
+		<h4 class="text-xl text-white">Choose Twin Pillars to gain a comprehensive, accurate, and globally compliant understanding of your real estate assets, empowering your most important decisions.
 </h4>
 	</Col>
 </Row>
@@ -73,7 +73,7 @@ const { id = 'intro', title, text, classes } = Astro.props
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		background: rgba(255, 255, 255, 0.8);
+		background: rgba(255, 255, 255, 0.963);
 		border-radius: 12px;
 		border: 1px solid rgba(223, 226, 232, 0.8);
 		backdrop-filter: blur(10px);
@@ -82,8 +82,8 @@ const { id = 'intro', title, text, classes } = Astro.props
 
 	.feature-item:hover :global(.feature-card) {
 		background: rgba(255, 255, 255, 0.95);
-		border-color: rgba(59, 130, 246, 0.3);
-		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+		border-color: rgb(158, 171, 191);
+		box-shadow: 0 10px 25px rgba(37, 37, 37, 0.777);
 	}
 
 	/* Increase icon size */

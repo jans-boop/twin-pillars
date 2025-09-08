@@ -24,7 +24,7 @@ const teamMembers = [
 		credentials: 'MRICS',
 		location: 'Malaysia',
 		position: 'Managing Director',
-		specialization: 'Valuation & Advisory, Asia',
+		specialization: 'Valuation and Advisory, Asia',
 		image: null
 	},
 	{
@@ -36,18 +36,18 @@ const teamMembers = [
 		image: null
 	},
 	{
-		name: 'Ms. Huynh Ngoc Thuy Huong',
-		credentials: 'MRICS',
-		location: 'Vietnam',
-		position: 'Chief Valuer',
-		specialization: 'Real Estate Valuation and Advisory',
-		image: null
-	},
-	{
 		name: 'Mr. Sorn Seap',
 		credentials: 'CVEA',
 		location: 'Cambodia',
 		position: 'Managing Director',
+		specialization: 'Real Estate Valuation and Advisory',
+		image: null
+	},
+	{
+		name: 'Ms. Huynh Ngoc Thuy Huong',
+		credentials: 'MRICS',
+		location: 'Vietnam',
+		position: 'Chief Valuer',
 		specialization: 'Real Estate Valuation and Advisory',
 		image: null
 	},
@@ -83,48 +83,61 @@ const { classes } = Astro.props;
 		</Row>
 
 		<!-- Team Grid -->
-		<Row classes="gap-y-12">
+		<div class="team-grid">
 			{
 				teamMembers.map((member, index) => (
-					<Col span="4">
-						<div class="team-card bg-white rounded-2xl p-8 text-center shadow-lg border border-neutral-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
-							<!-- Country Name -->
-							<div class="country-header mb-4">
-								<h3 class="text-3xl font-bold text-neutral-800">
-									{member.location}
-								</h3>
-								<div class="w-full h-1 bg-primary-400 mx-auto rounded-full"></div>
+					<div class="team-card bg-white rounded-2xl p-2 md:p-8 text-center shadow-lg border border-neutral-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+						<!-- Country Name -->
+						<div class="country-header md:mb-4">
+							<h3 class="text-lg mt-2 md:text-3xl font-bold text-neutral-800">
+								{member.location}
+							</h3>
+							<div class="w-full mb-6 h-1 bg-primary-400 mx-auto rounded-full"></div>
+						</div>
+
+						<!-- Member Info -->
+						<div class="member-info md:space-y-2">
+							<h4 class="text-base md:text-xl font-bold text-neutral-800 md:pt-4">
+								{member.name}
+							</h4>
+							
+							<!-- Position -->
+							<div class="text-sm md:text-lg font-semibold text-neutral-800">
+								{member.position}
+							</div>
+							
+							<div class="text-xs md:text-sm text-neutral-700 pt-2">
+								{member.credentials}
 							</div>
 
-							<!-- Member Info -->
-							<div class="member-info space-y-2">
-								<h4 class="text-xl font-bold text-neutral-800 pt-4">
-									{member.name}
-								</h4>
-								
-								<!-- Position -->
-								<div class="text-lg font-semibold text-neutral-800">
-									{member.position}
-								</div>
-								
-								<div class="text-sm text-neutral-700 pt-2">
-									{member.credentials}
-								</div>
-
-								<!-- Specialization -->
-								<div class="text-sm text-neutral-700 leading-relaxed">
-									{member.specialization}
-								</div>
+							<!-- Specialization -->
+							<div class="text-xs md:text-sm text-neutral-700 leading-relaxed">
+								{member.specialization}
 							</div>
 						</div>
-					</Col>
+					</div>
 				))
 			}
-		</Row>
+		</div>
 	</Section>
 </div>
 
 <style>
+	/* Team grid layout */
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+		gap: 2rem 1rem;
+	}
+
+	/* Desktop: 3 columns */
+	@media (min-width: 1024px) {
+		.team-grid {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+		}
+	}
+
 	/* Team card styling */
 	.team-card {
 		position: relative;
@@ -141,24 +154,9 @@ const { classes } = Astro.props;
 	}
 
 	/* Responsive adjustments */
-	@media (max-width: 1024px) {
-		.team-card {
-			margin-bottom: 2rem;
-		}
-	}
-
 	@media (max-width: 768px) {
-		/* Stack cards on mobile */
-		:global(.team-grid) {
-			grid-template-columns: 1fr;
-		}
-		
-		.team-card {
-			margin-bottom: 1.5rem;
-		}
-
-		.country-header h3 {
-			font-size: 1.75rem;
+		.team-grid {
+			gap: 1.5rem 0.75rem;
 		}
 	}
 

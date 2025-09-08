@@ -3,6 +3,9 @@
 	document.addEventListener('astro:page-load', () => {
 		// Menu Dropdown
 		const menuItems = document.querySelectorAll('.header__menu-item')
+		const headerToggle = document.querySelector('.header__toggle')
+		const headerMenu = document.querySelector('.header__menu')
+
 		menuItems.forEach((menuItem) => {
 			const submenu = menuItem.querySelector('.header__submenu')
 			const link = menuItem.querySelector('.header__menu-link')
@@ -12,8 +15,23 @@
 					event.preventDefault()
 					menuItem.classList.toggle('open')
 				})
+			} else if (link) {
+				// For menu items without submenus, close the mobile menu when clicked
+				link.addEventListener('click', function (event) {
+					// Close mobile menu
+					if (headerToggle && headerMenu) {
+						headerToggle.classList.remove('header__toggle--open')
+						headerToggle.setAttribute('aria-expanded', 'false')
+						headerMenu.classList.remove('header__menu--open')
+					}
+					// Close any open submenus
+					menuItems.forEach((item) => {
+						item.classList.remove('open')
+					})
+				})
 			}
 		})
+
 		document.addEventListener('click', function (event) {
 			const target = event.target
 
@@ -26,8 +44,6 @@
 		})
 
 		// Menu toggle
-		const headerToggle = document.querySelector('.header__toggle')
-		const headerMenu = document.querySelector('.header__menu')
 		if (headerToggle && headerMenu) {
 			headerToggle.addEventListener('click', () => {
 				headerToggle.classList.toggle('header__toggle--open')
@@ -65,11 +81,55 @@
 				}
 			})
 			const close = modal.querySelector('.modal__close')
-			close.addEventListener('click', function (event) {
-				event.stopPropagation()
-				closeModal(modal)
-			})
+			if (close) {
+				close.addEventListener('click', function (event) {
+					event.stopPropagation()
+					closeModal(modal)
+				})
+			}
 		})
+
+		// Header/Footer visibility control (mobile only)
+		const setupHeaderFooterBehavior = () => {
+			const header = document.querySelector('.header') // Adjust selector if needed
+			const footer = document.querySelector('.footer') // Adjust selector if needed
+			
+			if (!header || !footer) return
+			
+			// Add transition to header
+			header.style.transition = 'transform 0.3s ease-in-out'
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (window.innerWidth <= 768) { // Only on mobile/tablet
+						if (entry.isIntersecting) {
+							// Footer is visible - hide header
+							header.style.transform = 'translateY(-100%)'
+						} else {
+							// Footer is not visible - show header
+							header.style.transform = 'translateY(0)'
+						}
+					}
+				})
+			}, {
+				threshold: 0.1, // Trigger when 10% of footer is visible
+				rootMargin: '0px'
+			})
+			
+			observer.observe(footer)
+			
+			// Reset on window resize
+			const handleResize = () => {
+				if (window.innerWidth > 768) {
+					header.style.transform = 'translateY(0)'
+				}
+			}
+			
+			window.addEventListener('resize', handleResize)
+		}
+
+		// Initialize header/footer behavior
+		setupHeaderFooterBehavior()
 	})
 </script>
 
