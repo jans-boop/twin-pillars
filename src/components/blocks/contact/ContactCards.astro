@@ -278,8 +278,8 @@ const { bg, classes } = Astro.props;
 </style>
 
 <script>
-	// Counter Animation Function
-	function animateCounter(element, target, duration = 500) {
+	// Counter Animation Function with proper TypeScript types
+	function animateCounter(element: HTMLElement, target: number, duration: number = 500): void {
 		const start = 0;
 		const increment = target / (duration / 16); // 60fps
 		let current = start;
@@ -290,35 +290,43 @@ const { bg, classes } = Astro.props;
 				current = target;
 				clearInterval(timer);
 			}
-			element.textContent = Math.floor(current);
+			element.textContent = Math.floor(current).toString();
 		}, 16);
 	}
 
 	// Enhanced Intersection Observer
-	const observerOptions = {
+	const observerOptions: IntersectionObserverInit = {
 		threshold: 0.3,
 		rootMargin: '0px 0px -100px 0px'
 	};
 
-	const observer = new IntersectionObserver((entries) => {
+	const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
-				const card = entry.target;
-				const counter = card.querySelector('.counter');
+				const card = entry.target as HTMLElement;
+				const counter = card.querySelector('.counter') as HTMLElement;
 				
 				if (counter) {
-					const target = parseInt(counter.getAttribute('data-target'));
+					const targetAttribute = counter.getAttribute('data-target');
 					
-					// Animate card appearance
-					card.classList.add('animate-in');
-					
-					// Reset counter to 0 and start animation
-					counter.textContent = '0';
-					
-					// Start counting animation with delay
-					setTimeout(() => {
-						animateCounter(counter, target, 2500);
-					}, 300);
+					// Check if data-target exists and is not null
+					if (targetAttribute) {
+						const target = parseInt(targetAttribute, 10);
+						
+						// Validate that target is a valid number
+						if (!isNaN(target)) {
+							// Animate card appearance
+							card.classList.add('animate-in');
+							
+							// Reset counter to 0 and start animation
+							counter.textContent = '0';
+							
+							// Start counting animation with delay
+							setTimeout(() => {
+								animateCounter(counter, target, 2500);
+							}, 300);
+						}
+					}
 				}
 				
 				// Unobserve after animation starts
@@ -329,7 +337,7 @@ const { bg, classes } = Astro.props;
 
 	// Start observing when DOM is loaded
 	document.addEventListener('DOMContentLoaded', () => {
-		const statCards = document.querySelectorAll('.stat-card');
+		const statCards = document.querySelectorAll('.stat-card') as NodeListOf<HTMLElement>;
 		statCards.forEach((card, index) => {
 			// Add staggered delay for multiple cards
 			setTimeout(() => {
