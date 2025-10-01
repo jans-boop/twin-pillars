@@ -11,16 +11,45 @@ import Feature2 from '../components/blocks/features/BVFeatureList2.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 
-// Data
-import featuresData from '../data/json-files/BVfeaturesData.json'
-
+import { absoluteUrl } from '../config/seo'
 
 // Content
-// - SEO
-const SEO = {
-	title: 'Twin Pillars | Your One-Stop Valuation Partner',
+const seo = {
+	title: 'Business Valuation Services in Asia | Twin Pillars',
 	description:
-		'Skilled valuation professionals unlocking asset value to drive business growth'
+		'Independent business valuation services for mergers, IPOs, financial reporting, and strategic planning delivered across Asia by Twin Pillars.',
+	path: '/business-valuation',
+	keywords: [
+		'business valuation Asia',
+		'mergers and acquisitions valuation',
+		'IFRS valuation advisory',
+		'company valuation Singapore'
+	],
+	structuredData: [
+		{
+			'@context': 'https://schema.org',
+			'@type': 'Service',
+			name: 'Business Valuation',
+			description:
+				'Professional valuation of businesses for mergers, acquisitions, IPO preparation, and financial reporting compliance.',
+			provider: {
+				'@type': 'Organization',
+				name: 'Twin Pillars',
+				url: absoluteUrl('/')
+			},
+			areaServed: ['Singapore', 'Asia'],
+			serviceType: 'Business valuation services',
+			url: absoluteUrl('/business-valuation'),
+			offers: {
+				'@type': 'Offer',
+				availability: 'https://schema.org/InStock',
+				priceSpecification: {
+					'@type': 'PriceSpecification',
+					priceCurrency: 'SGD'
+				}
+			}
+		}
+	]
 }
 
 // - Page Header
@@ -30,7 +59,7 @@ const header = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout seo={seo}>
 	<Hero title={header.title} text={header.text} />
 	<Section id="features">
 		<Row>

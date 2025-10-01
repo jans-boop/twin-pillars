@@ -10,16 +10,38 @@ import Feature from '../components/blocks/features/REFeatureList.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 
-// Data
-import featuresData from '../data/json-files/REfeaturesData.json'
-
+import { absoluteUrl } from '../config/seo'
 
 // Content
 // - SEO
-const SEO = {
-	title: 'Twin Pillars | Your One-Stop Valuation Partner',
+const seo = {
+	title: 'Real Estate Valuation Experts in Asia | Twin Pillars',
 	description:
-		'Skilled valuation professionals unlocking asset value to drive business growth'
+		'Professional real estate valuation, land appraisal, and liquidation assessments delivered with local market insight by Twin Pillars affiliates across Asia.',
+	path: '/real-estate-valuation',
+	keywords: [
+		'real estate valuation Asia',
+		'property appraisal Singapore',
+		'land valuation services',
+		'liquidation value assessment'
+	],
+	structuredData: [
+		{
+			'@context': 'https://schema.org',
+			'@type': 'Service',
+			name: 'Real Estate Valuation',
+			description:
+				'Real estate, land, and property valuation services for transactions, financial reporting, and strategic planning.',
+			provider: {
+				'@type': 'Organization',
+				name: 'Twin Pillars',
+				url: absoluteUrl('/')
+			},
+			areaServed: ['Singapore', 'Asia'],
+			serviceType: 'Real estate valuation services',
+			url: absoluteUrl('/real-estate-valuation')
+		}
+	]
 }
 
 // - Page Header
@@ -29,7 +51,7 @@ const header = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout seo={seo}>
 	<Hero title={header.title} text={header.text} />
 
 	{/* First section with full-width background */}

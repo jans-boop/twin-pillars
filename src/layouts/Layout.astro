@@ -14,6 +14,8 @@ import '@fontsource-variable/inter'
 
 // Data
 import { configData } from '../config/config'
+import { buildSeoMetadata } from '../config/seo'
+import type { SeoOptions } from '../config/seo'
 
 // Props
 type Props = {
@@ -22,14 +24,36 @@ type Props = {
 	ogImage?: string
 	noindex?: boolean
 	classes?: string
+	canonical?: string
+	keywords?: string[]
+	ogType?: 'website' | 'article'
+	seo?: SeoOptions
 }
 // Page Metadata
-const { title, description, ogImage, noindex, classes } = Astro.props
+const { title, description, ogImage, noindex, classes, canonical, keywords, ogType, seo } = Astro.props
+
+const seoOptions: SeoOptions = {
+	...(seo ?? {})
+}
+
+if (title) seoOptions.title = title
+if (description) seoOptions.description = description
+if (ogImage) seoOptions.image = ogImage
+if (typeof noindex === 'boolean') seoOptions.noindex = noindex
+if (canonical) seoOptions.canonical = canonical
+if (keywords) seoOptions.keywords = keywords
+if (ogType) seoOptions.type = ogType
+
+if (!seoOptions.path) {
+	seoOptions.path = Astro.url.pathname || '/'
+}
+
+const meta = buildSeoMetadata(seoOptions)
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-animation mode-light relative">
-	<Header title={title} description={description} ogImage={ogImage} noindex={noindex} />
+	<Header meta={meta} />
 	<body
 		class:list={[
 			{ ['mode-' + `${configData.mode}`]: configData.mode },

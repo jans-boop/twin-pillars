@@ -11,30 +11,53 @@
 
 // Props
 type Props = {
-	title?: string
-	description?: string
-	ogImage?: string
-	canonical?: boolean
+	title: string
+	description: string
+	ogImage: string
+	canonicalUrl?: string
 	noindex?: boolean
+	ogType?: string
+	keywords?: string[]
+	siteName?: string
+	structuredData?: Record<string, unknown>[]
 }
 
-const { title, description, ogImage, canonical, noindex } = Astro.props
+const {
+	title,
+	description,
+	ogImage,
+	canonicalUrl,
+	noindex,
+	ogType = 'website',
+	keywords,
+	siteName,
+	structuredData
+} = Astro.props
+
+const canonicalHref = canonicalUrl ?? Astro.url.href
+const metaKeywords = keywords && keywords.length > 0 ? keywords.join(', ') : undefined
 ---
 
 <Fragment>
 	<title>{title}</title>
 	<meta name="description" content={description} />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content={Astro.url} />
+	{metaKeywords && <meta name="keywords" content={metaKeywords} />}
+	<meta property="og:type" content={ogType} />
+	<meta property="og:url" content={canonicalHref} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:image" content={ogImage} />
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content={Astro.url} />
+	{siteName && <meta property="og:site_name" content={siteName} />}
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content={canonicalHref} />
 	<meta property="twitter:title" content={title} />
 	<meta property="twitter:description" content={description} />
 	<meta property="twitter:image" content={ogImage} />
-	<link rel="canonical" href={Astro.url} />
-	{canonical && <link rel="canonical" href={Astro.url} item-prop="url" />}
+	<link rel="canonical" href={canonicalHref} />
 	{noindex && <meta name="robots" content="noindex,nofollow" />}
+	{structuredData && structuredData.length > 0 && (
+		structuredData.map((schema) => (
+			<script type="application/ld+json">{JSON.stringify(schema)}</script>
+		))
+	)}
 </Fragment>

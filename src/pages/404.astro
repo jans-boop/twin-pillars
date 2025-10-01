@@ -10,16 +10,28 @@ import Spacer from '../components/ui/Spacer.astro'
 import Button from '../components/ui/Button.astro'
 import { Icon } from 'astro-icon/components'
 
+import { absoluteUrl } from '../config/seo'
+
 // Content
 // - SEO
-const SEO = {
-	title: 'Page Not Found',
-	description:
-		""
+const seo = {
+	title: 'Page Not Found | Twin Pillars',
+	description: 'The page you requested could not be found on Twin Pillars.',
+	noindex: true,
+	path: '/404',
+	structuredData: [
+		{
+			'@context': 'https://schema.org',
+			'@type': 'WebPage',
+			name: '404 Page',
+			description: 'This page could not be found on Twin Pillars.',
+			url: absoluteUrl('/404')
+		}
+	]
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout seo={seo}>
 	<Section>
 		<Row flex classes="text-center">
 			<Col span="2" />

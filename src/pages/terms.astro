@@ -6,12 +6,30 @@ import Layout from '../layouts/Layout.astro'
 import SidebarContent from '../components/blocks/basic/StickySidebar.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
 
+import { absoluteUrl } from '../config/seo'
+
 // Content
 // - SEO
-const SEO = {
-	title: 'Twin Pillars | Website Usage Terms and Conditions',
+const seo = {
+	title: 'Website Terms & Privacy Policy | Twin Pillars',
 	description:
-		'Machinery and Business Valuation Advisory Services in Singapore - Website Terms and Conditions'
+		'Review Twin Pillars’ terms of use, privacy practices, and intellectual property rights for our valuation advisory website.',
+	path: '/terms',
+	keywords: [
+		'Twin Pillars terms of use',
+		'privacy policy Twin Pillars',
+		'valuation advisory legal terms'
+	],
+	structuredData: [
+		{
+			'@context': 'https://schema.org',
+			'@type': 'WebPage',
+			name: 'Website Usage Terms and Conditions',
+			description:
+				'Details about terms of use, privacy policy, intellectual property, and data collection for Twin Pillars.',
+			url: absoluteUrl('/terms')
+		}
+	]
 }
 // - Page Header
 const header = {
@@ -20,7 +38,7 @@ const header = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout seo={seo}>
 	<Hero title={header.title} text={header.text} />
 	<SidebarContent>
 		<div slot="sidebar">

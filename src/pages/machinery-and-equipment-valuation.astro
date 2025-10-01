@@ -10,16 +10,38 @@ import Feature from '../components/blocks/features/MEVFeatureList.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 
-// Data
-import featuresData from '../data/json-files/MEVfeaturesData.json'
-
+import { absoluteUrl } from '../config/seo'
 
 // Content
 // - SEO
-const SEO = {
-	title: 'Twin Pillars | Your One-Stop Valuation Partner',
+const seo = {
+	title: 'Machinery and Equipment Valuation Specialists | Twin Pillars',
 	description:
-		'Skilled valuation professionals unlocking asset value to drive business growth'
+		'Asia-wide machinery and equipment valuation expertise covering standalone assets and complex facilities, delivered by Twin Pillars.',
+	path: '/machinery-and-equipment-valuation',
+	keywords: [
+		'machinery valuation experts',
+		'plant and equipment appraisal',
+		'industrial asset valuation Asia',
+		'manufacturing facility valuation'
+	],
+	structuredData: [
+		{
+			'@context': 'https://schema.org',
+			'@type': 'Service',
+			name: 'Machinery and Equipment Valuation',
+			description:
+				'Valuation of plant, machinery, and industrial equipment for insurance, financial reporting, and transaction support.',
+			provider: {
+				'@type': 'Organization',
+				name: 'Twin Pillars',
+				url: absoluteUrl('/')
+			},
+			areaServed: ['Singapore', 'Asia'],
+			serviceType: 'Machinery and equipment valuation services',
+			url: absoluteUrl('/machinery-and-equipment-valuation')
+		}
+	]
 }
 
 // - Page Header
@@ -28,7 +50,7 @@ const header = {
 	text: 'Unleash the True Value of Your Assets'
 }
 ---
-<Layout title={SEO.title} description={SEO.description}>
+<Layout seo={seo}>
 	<Hero title={header.title} text={header.text} />
 	
 	{/* First section with full-width background */}

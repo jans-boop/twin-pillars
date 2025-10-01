@@ -10,15 +10,44 @@ import FormHero from '../components/blocks/hero/ContactHero.astro'
 import ContactCards from '../components/blocks/contact/ContactCards.astro'
 import Social from '../components/blocks/hero/SocialMedia.astro'
 import SocialProof from '../components/blocks/socialproof/Basic.astro'
+import { absoluteUrl } from '../config/seo'
 
 // Content
 // - Testimonial background
 import testimonialBackground from '../assets/cta-light-bg.png'
 // - SEO
-const SEO = {
-	title: 'Twin Pillars | Your One-Stop Valuation Partner',
+const seo = {
+	title: 'Twin Pillars | Asset Valuation Experts in Asia',
 	description:
-		'Skilled valuation professionals unlocking asset value to drive business growth'
+		'Twin Pillars delivers business, machinery, and real estate valuation expertise to organizations across Asia from our Singapore headquarters.',
+	keywords: [
+		'asset valuation Asia',
+		'business valuation experts',
+		'machinery appraisal Singapore',
+		'real estate valuation consultants'
+	],
+	structuredData: [
+		{
+			'@context': 'https://schema.org',
+			'@type': 'ProfessionalService',
+			name: 'Twin Pillars',
+			description:
+				'Twin Pillars provides business, machinery, and real estate valuation services with experienced professionals across Asia.',
+			url: absoluteUrl('/'),
+			areaServed: ['Singapore', 'Asia'],
+			serviceType: [
+				'Business valuation',
+				'Machinery and equipment valuation',
+				'Real estate valuation'
+			],
+			logo: absoluteUrl('/logo-w-bg.svg'),
+			contactPoint: {
+				'@type': 'ContactPoint',
+				telephone: '+65 81811835',
+				contactType: 'Customer Service'
+			}
+		}
+	]
 }
 
 const header = {
@@ -27,7 +56,7 @@ const header = {
 }
 ---
 
-<Layout title={SEO.title} description={SEO.description}>
+<Layout seo={seo}>
 	<Hero />
 	<ContactCards bg={testimonialBackground.src} />
 	<Features />
