@@ -138,7 +138,7 @@ const savedNavActions = navActions.map((action) => ({
 		@apply flex h-[7.5rem] items-stretch gap-6 font-medium text-white lg:justify-between dark:text-neutral-50;
 	}
 	.header__menu {
-		@apply invisible absolute left-0 top-0 z-[-1] ml-auto h-auto max-h-[calc(100vh-7.5rem)] w-full justify-center overflow-hidden overflow-y-auto overscroll-contain bg-neutral-900/80 px-8 pt-32 font-medium opacity-0 transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0 lg:z-0 lg:flex lg:h-full lg:max-h-none lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-white/0 lg:px-0 lg:py-0 lg:pt-0 lg:pb-0 lg:opacity-100 dark:bg-neutral-900/90 dark:lg:bg-transparent;
+	@apply invisible absolute left-0 top-0 z-[-1] ml-auto h-auto max-h-[calc(100vh-7.5rem)] w-full justify-center overflow-hidden overflow-y-auto overscroll-contain bg-neutral-900/80 px-8 pt-32 font-medium opacity-0 transition-[opacity,visibility] duration-300 lg:visible lg:relative lg:top-0 lg:z-0 lg:flex lg:h-full lg:max-h-none lg:w-auto lg:items-stretch lg:overflow-visible lg:bg-white/0 lg:px-0 lg:py-0 lg:pt-0 lg:pb-0 lg:opacity-100 dark:bg-neutral-900/90 dark:lg:bg-transparent;
 	}
 	.header__menu--open {
 		@apply visible opacity-100 backdrop-blur-sm;
@@ -180,6 +180,6 @@ const savedNavActions = navActions.map((action) => ({
 		@apply w-1/2 origin-top-left translate-y-2 [.header\_\_toggle--open_&]:w-0;
 	}
 	.header__actions {
-		@apply fixed bottom-0 left-0 hidden w-full items-center justify-between gap-4 border-t border-neutral-100 bg-white px-6 py-4 lg:relative lg:ml-auto lg:flex lg:w-auto lg:border-none lg:bg-transparent lg:px-0 lg:py-0 dark:border-neutral-800 dark:bg-neutral-950 lg:dark:bg-transparent [.header\_\_menu--open~&]:flex;
+	@apply fixed bottom-0 left-0 hidden w-full items-center justify-between gap-4 border-t border-transparent bg-transparent px-6 py-4 lg:relative lg:ml-auto lg:flex lg:w-auto lg:border-none lg:bg-transparent lg:px-0 lg:py-0 dark:border-transparent dark:bg-transparent lg:dark:bg-transparent [.header\_\_menu--open~&]:flex;
 	}
 </style>
