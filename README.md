@@ -9,4 +9,4 @@ Twin Pillars specializes in comprehensive valuation services across Asia, provid
 - Machinery and equipment appraisals  
 - Real estate valuations
 
-© 2025 Twin Pillars. All rights reserved.
+© 2025 Twin Pillars. All rights reserved. 
